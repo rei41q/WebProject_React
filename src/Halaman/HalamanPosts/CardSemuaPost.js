@@ -17,7 +17,7 @@ const CardSemuaPost = (props) => {
      alt="new"
      />
      </div>
-     <div>{body}</div>
+
    </div>
 </motion.div> 
   );
@@ -26,7 +26,7 @@ const CardSemuaPost = (props) => {
 const styles = {
   card: {
     border: "0px solid black",
-    width: "150px",
+    width: "340px",
     margin: "10px",
     borderRadius: "10px",
     padding: "10px",

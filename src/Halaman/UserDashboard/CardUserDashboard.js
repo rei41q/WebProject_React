@@ -25,7 +25,7 @@ const CardUserDashboard = (props) => {
 const styles = {
   card: {
     border: "0px solid black",
-    width: "150px",
+    width: "340px",
     margin: "10px",
     borderRadius: "10px",
     padding: "10px",

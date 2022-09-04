@@ -10,16 +10,22 @@ import { useCookies } from "react-cookie";
  
 
 const UserDashboard = () => {
-    const [cookies] = useCookies(["accessToken"]);
+    const [cookies, setCookies] = useCookies(["accessToken", "id"]);
     const { id } = useParams();
     console.log("writer id", id)
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
   JSON.parse(localStorage.getItem('user-info')) 
-  const logOut = () =>{
+  const buatPost = () =>{
     navigate(`/createPost`);
    
+  }
+  const logOut = () =>{
+    setCookies("accessToken", null, { maxAge: 0 });
+    setCookies("id", null, { maxAge: 0 });
+    alert("Log out berhasil")
+    navigate(`/`);
   }
   const fetchPosts = () => {
 
@@ -35,6 +41,7 @@ const UserDashboard = () => {
   };
 
   const handleClick = (postId) => {
+    
     navigate(`/editPost/${postId}`);
   };
 
@@ -89,7 +96,10 @@ const UserDashboard = () => {
 
   return (
     <>
-    <button onClick={logOut}> Buat Post </button>
+    <div>  <button onClick={buatPost} style={{"float": "left"}}> Buat Post </button>
+    <button onClick={logOut}style={{"float": "right"}}> Log Out</button> 
+    </div>
+  
       <div style={styles.wrapper}>
         {posts.map((post) => (
           <CardUserDashboard
