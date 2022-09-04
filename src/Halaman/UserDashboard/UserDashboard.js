@@ -10,6 +10,7 @@ import { useCookies } from "react-cookie";
  
 
 const UserDashboard = () => {
+  const [values, setValues] = useState({});
     const [cookies, setCookies] = useCookies(["accessToken", "id"]);
     const { id } = useParams();
     console.log("writer id", id)
@@ -30,12 +31,21 @@ const UserDashboard = () => {
   const fetchPosts = () => {
 
     axios
-      .get(`http://localhost:8000/posts?writerId=${id}`,) //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
+      .get(`http://localhost:8000/userDashboard?writerId=${id} `,{
+        headers: { Authorization: `Bearer ${cookies.accessToken}` },    //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
+      })
       .then((res) => {
-       
+        const { accessToken } = res.data;
         const listPosts = res.data;
         console.log(listPosts);
+
+
+        console.log("acces token id backend: ",accessToken)
+        console.log(": ",cookies.accessToken)
+        console.log(": ",cookies.id)
+        //PENGECEKAN JIKA COOKIES DIEDIT
         setPosts(listPosts);
+        
       })
       .catch((err) => console.error(err));
   };

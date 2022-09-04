@@ -24,9 +24,15 @@ import { useCookies } from "react-cookie";
     e.preventDefault();
     axios
       .post("http://localhost:8000/posts", values, {
+        
         headers: { Authorization: `Bearer ${cookies.accessToken}` },
       })
-      .then((res) => navigate(`/userDashboard/${cookies.id}`))
+      .then((res) =>{ 
+        const { accessToken, postId } = res.data;
+        console.log("akses token buat post", accessToken, " and ", postId)
+        navigate(`/userDashboard/${cookies.id}`)
+    
+    })
       .catch((err) => {
         alert("something wrong, pelase relogin");
         navigate("/createPost")
