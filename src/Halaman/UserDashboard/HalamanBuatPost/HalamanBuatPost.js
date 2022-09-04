@@ -30,7 +30,11 @@ import { useCookies } from "react-cookie";
       .then((res) =>{ 
         const { accessToken, postId } = res.data;
         console.log("akses token buat post", accessToken, " and ", postId)
+        if(res.status===200){
+        alert("buat post berhasil")
         navigate(`/userDashboard/${cookies.id}`)
+        }
+        
     
     })
       .catch((err) => {

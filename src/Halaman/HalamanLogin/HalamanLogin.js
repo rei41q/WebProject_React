@@ -24,7 +24,7 @@ const HalamanLogin = () => {
       navigate(`/userDashboard/${cookies.id}`);
     }
     else{
-      alert("Login terlebih dahulu")
+      alert("Silahkan login dulu..")
       navigate("/login");
     }
 }, []);
