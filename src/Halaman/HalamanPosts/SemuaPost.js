@@ -89,15 +89,17 @@ const SemuaPost = () => {
   }, []);
 
   return (
-    <>
-      <div style={{ float: "left" , }}>
+    <>      <div style={{ float: "left" , }}>
 
       <button  style={styles.button_7} onClick={() => halamanSebelumnya()}>
         
         Halaman Sebelumnya
       </button>
-     
+    
       </div>
+
+
+
       <div style={{ float: "right", }}>
       <button style={styles.button_7} onClick={() => halamanBerikut()}>
  

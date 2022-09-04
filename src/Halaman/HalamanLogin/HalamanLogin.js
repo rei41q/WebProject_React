@@ -18,7 +18,9 @@ const HalamanLogin = () => {
      * 3. cek server apakah akses token valid apa tidak
      */
     console.log("Tes cookies",cookies.accessToken)
+    console.log("Tes cookies",useCookies)
     if (cookies.accessToken) {
+      
       navigate(`/userDashboard/${cookies.id}`);
     }
     else{
@@ -37,14 +39,15 @@ const HalamanLogin = () => {
     axios
     .post("http://localhost:8000/auth/login", values)
       .then((res) => {
-        const { accessToken, id, email } = res.data;
+        const { accessToken, id } = res.data;
         console.log(accessToken)
       
         setCookies("accessToken", accessToken, { maxAge: 600000 });
-        setCookies("email", email, { maxAge: 600000 });
+
         setCookies("id", id, { maxAge: 600000 });
         console.log("id : ", id)
-        console.log("email : ", email)
+
+  
         console.log("access token : ", accessToken)
         if(res.status===200){
           navigate(`/userDashboard/${id}`);
@@ -56,8 +59,9 @@ const HalamanLogin = () => {
 
 
   return (
-    <div style={{"border" : "0px solid black", "margin" : "4% 10% 0% 50%","padding" : "40px 0px 90px 0px",
-    "backgroundColor" : "#ffffff","borderRadius" : "12px", "boxShadow" : "7px 8px #b3cbe1"} }> 
+    <div style={{"border" : "0px solid black", "margin" : "23px 80px 0px 0px","padding" : "30px 0px 45px 0px",
+    "backgroundColor" : "#ffffff","borderRadius" : "12px", "boxShadow" : "7px 8px #b3cbe1", "width" : "450px", "height": "330px", "float" : "right"} }> 
+
     <div style={{"textAlign" : "center", "fontSize" : "20px"}}>
        <h1 style={{"color" : "rgb(0, 42, 78)"}}>Log in </h1> 
       <form onSubmit={handleSubmit}>
@@ -76,7 +80,7 @@ const HalamanLogin = () => {
           <input placeholder="Masukan Password Anda" style={{"border" : "0.2px solid gray","backgroundColor" : "1a64a6", "width" : "62.5%", "height" : "28px","borderRadius" : "5px"}}  name="password" id="bodyId" onChange={handleOnChange}   />
         </div>
         <br></br>
-        <div  style={{"textAlign" : "center","margin-left": "50px"}}>
+        <div  style={{"textAlign" : "center",}}>
           <button  type="submit" > Login </button>
         </div>
       </form>

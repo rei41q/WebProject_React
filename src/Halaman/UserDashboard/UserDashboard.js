@@ -18,16 +18,15 @@ const UserDashboard = () => {
 
   JSON.parse(localStorage.getItem('user-info')) 
   const logOut = () =>{
-    localStorage.clear();
-    alert("log out")
+    navigate(`/createPost`);
    
   }
   const fetchPosts = () => {
 
-  
     axios
-      .get(`http://localhost:8000/posts?writerId=${id}`) //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
+      .get(`http://localhost:8000/posts?writerId=${id}`,) //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
       .then((res) => {
+       
         const listPosts = res.data;
         console.log(listPosts);
         setPosts(listPosts);
@@ -78,15 +77,19 @@ const UserDashboard = () => {
           navigate("/login");
         }
         else{
-            if(cookies.id === id){
+            if(cookies.accessToken && cookies.id === id){
             fetchPosts();
+            }
+            else{
+              alert("Akses ilegal")
+              navigate("/")
             }
         }
   }, []);
 
   return (
     <>
-    <button onClick={logOut}> log out </button>
+    <button onClick={logOut}> Buat Post </button>
       <div style={styles.wrapper}>
         {posts.map((post) => (
           <CardUserDashboard
