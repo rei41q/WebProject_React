@@ -46,4 +46,3 @@ const style = {
   },
 };
 export default HalamanNavigation;
-

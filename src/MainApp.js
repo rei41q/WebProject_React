@@ -9,6 +9,7 @@ import HalamanRegistration from "./Halaman/HalamanRegistration/HalamanRegistrati
 import SingleBlogPost from "./Halaman/HalamanPosts/SinglePost";
 import UserDashboard from "./Halaman/UserDashboard/UserDashboard";
 import HalamanBuatPost from "./Halaman/UserDashboard/HalamanBuatPost/HalamanBuatPost";
+import HalamanEditPost from "./Halaman/UserDashboard/HalamanEditPost/HalamanEditPost";
 
 // import Identity from "./Components/Identity";
 // import SemuaPost from "./Halaman/HalamanPosts/SemuaPost";
@@ -51,8 +52,11 @@ class MainApp extends React.Component{
 
         
           />
-         
+
           <Route path="/userDashboard/:id" element = {<UserDashboard/>}
+          />
+
+          <Route path="/editPost/:postId" element = {<HalamanEditPost/>}
           />
 
             

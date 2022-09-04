@@ -17,11 +17,6 @@ const HalamanRegistration = () => {
     axios
     .post("http://localhost:8000/user/registration", values)
       .then((res) => {
-        const {fullname, password, email } = res.data;
-        setCookies("fullname", fullname, { maxAge: 60000 });
-        setCookies("email", email, { maxAge: 60000 });
-        setCookies("password", password, { maxAge: 60000 });
-        
        alert("pendaftaraan sukses")
       })
       .catch((err) => alert("pendaftaran gagal"));

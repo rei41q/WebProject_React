@@ -1,13 +1,16 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
-  const HalamanBuatPost = () => {
+  const HalamanEditPost = () => {
   const [values, setValues] = useState({});
   const navigate = useNavigate();
-  const [cookies] = useCookies(["accessToken"]);
+  
+  const { postId } = useParams();
+  const [cookies] = useCookies(["accessToken","id"]);
 
+  console.log("post id edit ", postId)
   if(!cookies.accessToken){
     alert("akses ilegal")
     navigate("/")
@@ -20,16 +23,26 @@ import { useCookies } from "react-cookie";
 
   const handleSubmit = (e) => {
 
-      
+
     e.preventDefault();
+    console.log(e.preventDefault())
     axios
-      .post("http://localhost:8000/posts", values, {
+      .put(`http://localhost:8000/posts/${postId}`, values, {
         headers: { Authorization: `Bearer ${cookies.accessToken}` },
       })
-      .then((res) => navigate(`/userDashboard/${cookies.id}`))
+      .then((res) => {
+        if(res.status === 200){
+            
+            alert("update sukses")
+             navigate(`/userDashboard/${cookies.id}`)
+        }
+        }
+       
+       )
+       
       .catch((err) => {
         alert("something wrong, pelase relogin");
-        navigate("/createPost")
+        navigate(`/editPost/${postId}`)
       });
     
   };
@@ -59,4 +72,4 @@ import { useCookies } from "react-cookie";
   );
   };
 
-  export default HalamanBuatPost;
+  export default HalamanEditPost;

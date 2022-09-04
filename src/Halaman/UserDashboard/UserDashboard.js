@@ -34,8 +34,8 @@ const UserDashboard = () => {
       .catch((err) => console.error(err));
   };
 
-  const handleClick = (id) => {
-    navigate(`/blogs/${id}`);
+  const handleClick = (postId) => {
+    navigate(`/editPost/${postId}`);
   };
 
   const handleHover = () =>{
