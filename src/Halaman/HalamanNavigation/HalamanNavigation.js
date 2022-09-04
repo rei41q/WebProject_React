@@ -7,17 +7,23 @@ class HalamanNavigation extends Component {
   render() {
 
     
-    return (
+    return ( //STYLE BELUM REFACTOR
       <div>
         <div style={style.AtributStye}> 
-        <div> </div>
+
         <img src={logo} alt="nice" width={182} height={64} style={{"float" : "left","marginTop" : "-19px", "width" : "182px", }}/>
+
                <Link  to="/" style={{"textDecoration":"none", "color": "white", "marginRight" : "15.5px"}} >
               
                 Home</Link>
          
-               <Link to="/registration"  style={{"textDecoration":"none", "color": "white", "marginRight" : "15.5px"}} >Registration</Link>
-               <Link to="/login"  style={{"textDecoration":"none", "color": "white", "marginRight" : "15.5px"}} >User Dashboard</Link>
+               <Link to="/registration"  style={{"textDecoration":"none", "color": "white", "marginRight" : "15.5px"}} >
+                
+                Registration</Link>
+
+               <Link to="/login"  style={{"textDecoration":"none", "color": "white", "marginRight" : "15.5px"}} >
+                
+                User Dashboard</Link>
 
         </div>
         
