@@ -59,7 +59,7 @@ import { useCookies } from "react-cookie";
         </div>
         <div>
           <label>image : </label>
-          <input name="image" onChange={handleChange} value={values.image}/>
+          <input name="image" onChange={handleChange} placeholder="URL validation"  value={values.image}/>
         </div>
         <div>
           <label>Body : </label>
