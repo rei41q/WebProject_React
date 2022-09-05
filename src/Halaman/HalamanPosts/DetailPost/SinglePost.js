@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import CardSinglePost from "./CardSinglePost";
 
 const SingleBlogPost = () => {
-  
+
   const { postId } = useParams();
   console.log("post id", postId)
   const [post, setPost] = useState({});

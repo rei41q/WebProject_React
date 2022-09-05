@@ -7,10 +7,10 @@ import CardUserDashboard from "./CardUserDashboard";
 import { useCookies } from "react-cookie";
 
 
- 
+import styleButtons from "../StyleButtons/Style.json"
 
 const UserDashboard = () => {
-  const [values, setValues] = useState({});
+  
     const [cookies, setCookies] = useCookies(["accessToken", "id"]);
     const { id } = useParams();
     console.log("writer id", id)
@@ -25,7 +25,7 @@ const UserDashboard = () => {
   const logOut = () =>{
     setCookies("accessToken", null, { maxAge: 0 });
     setCookies("id", null, { maxAge: 0 });
-    alert("Log out berhasil")
+    alert("Log out berhasil, diarahkan kembali ke home")
     navigate(`/`);
   }
   const fetchPosts = () => {
@@ -106,9 +106,12 @@ const UserDashboard = () => {
 
   return (
     <>
-    <div>  <button onClick={buatPost} style={{"float": "left"}}> Buat Post </button>
-    <button onClick={logOut}style={{"float": "right"}}> Log Out</button> 
+    <div>  
+      <button onClick={buatPost} style={styleButtons.button7}> Buat Post </button>
+      <div style={{"float": "right"}}> <button onClick={logOut}style={styleButtons.button7} > Log Out</button>  </div>
     </div>
+    
+    
   
       <div style={styles.wrapper}>
         {posts.map((post) => (
@@ -133,34 +136,7 @@ const styles = {
     justifyContent: "space-around",
     padding: "35px 35px 35px 35px",
     margin: "10px 0px 0px 0px",
-  },
-  button_7: {
-    backgroundColor: "#1a64a6",
-    border: "1px solid transparent",
-    borderRadius: "3px",
-    boxShadow: "rgba(255, 255, 255, .4) 0 1px 0 0 inset",
-    boxSizing: "border-box",
-    color: "#fff",
-    cursor: "pointer",
-    display: "inline-block",
-    fontFamily:
-      '-apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif',
-    fontSize: "13px",
-    fontWeight: "400",
-    lineHeight: "1.15385",
-    margin: "0",
-    outline: "none",
-    padding: "8px .8em",
-    position: "relative",
-    textAlign: "center",
-    textDecoration: "none",
-    userSelect: "none",
-    WebkitUserSelect: "none",
-    touchAction: "manipulation",
-    verticalAlign: "baseline",
-    whiteSpace: "nowrap",
-
-  },
+  }
 };
 
 export default UserDashboard;

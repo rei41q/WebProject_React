@@ -41,7 +41,7 @@ import { useCookies } from "react-cookie";
        )
        
       .catch((err) => {
-        alert("something wrong, pelase relogin");
+        alert("Something went wrong. Please try again later");
         navigate(`/editPost/${postId}`)
       });
     

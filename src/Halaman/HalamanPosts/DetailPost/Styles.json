@@ -13,6 +13,9 @@
     "fontWeight": "bold",
     "marginBottom": "10px",
       "textTransform": "capitalize"
-    }
+    },
+    "navigation": {"textDecoration":"none", 
+    "color": "white", 
+    "marginRight" : "15.5px"}
 }
 

@@ -3,6 +3,8 @@ import React, {  useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
+import styleButtons from "../StyleButtons/Style.json"
+
 const HalamanLogin = () => {
   const [values, setValues] = useState({});
   const [cookies, setCookies] = useCookies(["accessToken", "id", "email"]);
@@ -59,8 +61,8 @@ const HalamanLogin = () => {
 
 
   return (
-    <div style={{"border" : "0px solid black", "margin" : "23px 80px 0px 0px","padding" : "30px 0px 45px 0px",
-    "backgroundColor" : "#ffffff","borderRadius" : "12px", "boxShadow" : "7px 8px #b3cbe1", "width" : "450px", "height": "330px", "float" : "right"} }> 
+    <div  style={{"border" : " 0px solid rgb(0, 42, 78)", "position": "relative"}}> 
+    <div style={styles.borderLogin }> 
 
     <div style={{"textAlign" : "center", "fontSize" : "20px"}}>
        <h1 style={{"color" : "rgb(0, 42, 78)"}}>Log in </h1> 
@@ -81,12 +83,44 @@ const HalamanLogin = () => {
         </div>
         <br></br>
         <div  style={{"textAlign" : "center",}}>
-          <button  type="submit" > Login </button>
+          <button  type="submit" style={styleButtons.button7} > Login </button>
         </div>
       </form>
     </div>
     </div>
+    </div>
   );
+};
+
+const styles = {
+  borderLogin: {
+    "border" : "0px solid rgb(0, 42, 78)", 
+     "width" : "40%",
+     "height" : "355px",
+     "marginLeft": "50%",
+     "marginTop": "20px",
+    "padding" : "30px 0px 45px 0px",
+    "backgroundColor" : "#ffffff",
+    "borderRadius" : "12px", 
+    "boxShadow" : "7px 8px #b3cbe1"
+  },
+  textPosition: 
+    {
+      "textAlign" : "center", 
+    "fontSize" : "20px"
+  }
+  ,
+  inputPosition:{
+    "border" : "0.2px solid gray", 
+    "backgroundColor" : "1a64a6", 
+    "width" : "62.5%", "height" : 
+    "28px","borderRadius" : "5px"
+  },
+  images:{
+     float: "left", 
+     marginTop: "-19px", 
+     width: "182px"
+    }
 };
 
 export default HalamanLogin;

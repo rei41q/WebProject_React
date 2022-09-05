@@ -2,11 +2,11 @@ import React from "react";
 import HalamanNavigation from "./Halaman/HalamanNavigation/HalamanNavigation";
 
 import { Route, Routes } from "react-router-dom";
-import SemuaPost from "./Halaman/HalamanPosts/SemuaPost";
+import SemuaPost from "./Halaman/HalamanPosts/SemuaPost/SemuaPost";
 
 import HalamanLogin from "./Halaman/HalamanLogin/HalamanLogin";
 import HalamanRegistration from "./Halaman/HalamanRegistration/HalamanRegistration";
-import SingleBlogPost from "./Halaman/HalamanPosts/SinglePost";
+import SingleBlogPost from "./Halaman/HalamanPosts/DetailPost/SinglePost";
 import UserDashboard from "./Halaman/UserDashboard/UserDashboard";
 import HalamanBuatPost from "./Halaman/UserDashboard/HalamanBuatPost/HalamanBuatPost";
 import HalamanEditPost from "./Halaman/UserDashboard/HalamanEditPost/HalamanEditPost";

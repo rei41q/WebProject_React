@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
+
+import styleButtons from "../../StyleButtons/Style.json"
+
   const HalamanBuatPost = () => {
   const [values, setValues] = useState({});
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ import { useCookies } from "react-cookie";
     
     })
       .catch((err) => {
-        alert("something wrong, pelase relogin");
+        alert("Something went wrong. Please try again later");
         navigate("/createPost")
       });
     
@@ -46,8 +49,15 @@ import { useCookies } from "react-cookie";
 
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div style={
+      {
+        "float" : "left", 
+        "border" : "2px solid black", 
+        "marginTop" : "50px",
+        "marginLeft" : "35%",
+        "padding" : "10px 10px 10px 10px"
+      }}>
+      <form onSubmit={handleSubmit} style={{"fontSize" : "30px"}}>
         <div>
           <label>Title : </label>
           <input name="title" onChange={handleChange} />
@@ -62,11 +72,12 @@ import { useCookies } from "react-cookie";
         </div>
       
         <div>
-          <button type="submit">Submit</button>
+          <button type="submit" style={styleButtons.button7}> Buat Post</button>
         </div>
       </form>
     </div>
   );
   };
 
+  
   export default HalamanBuatPost;

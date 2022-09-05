@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './style.json';
+import styles from '../DetailPost/Styles.json';
 
 const CardSinglePost = (props) => {
   const { title, body, image, userId, onClick } = props;

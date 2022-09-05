@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 
 const CardSemuaPost = (props) => {
-  const { title, body, image, onClick } = props;
+  const { title, image, onClick } = props;
   return (
     <motion.div exit={{ opacity: 0 }}>
 <div style={styles.card} onClick={onClick}   >
