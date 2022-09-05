@@ -64,7 +64,7 @@ import styleButtons from "../../StyleButtons/Style.json"
         </div>
         <div>
           <label>image : </label>
-          <input name="image" onChange={handleChange}  value={values.image} />
+          <input name="image" onChange={handleChange} placeholder="Validation URL"  value={values.image} />
         </div>
         <div>
           <label>Body : </label>
