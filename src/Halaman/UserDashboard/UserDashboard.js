@@ -44,6 +44,7 @@ const UserDashboard = () => {
         console.log(": ",cookies.accessToken)
         console.log(": ",cookies.id)
         //PENGECEKAN JIKA COOKIES DIEDIT
+
         setPosts(listPosts);
         
       })
@@ -111,6 +112,7 @@ const UserDashboard = () => {
     <>
     <div>  
       <button onClick={buatPost} style={styleButtons.button7}> Buat Post </button>
+      
       <div style={{"float": "right"}}> <button onClick={logOut}style={styleButtons.button7} > Log Out</button>  </div>
     </div>
     

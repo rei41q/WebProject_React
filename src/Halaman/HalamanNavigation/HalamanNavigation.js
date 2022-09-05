@@ -3,8 +3,15 @@ import { Link, Outlet } from "react-router-dom";
 
 import logo from "./logo.svg";
 
-class HalamanNavigation extends Component {
-  render() {
+
+import { useCookies } from "react-cookie";
+
+const HalamanNavigation = () => {
+
+  const [cookies, setCookies] = useCookies(["accessToken"]);
+
+    console.log("cookies login", cookies.accessToken)
+
     return (
       //STYLE BELUM REFACTOR
       <div>
@@ -24,10 +31,15 @@ class HalamanNavigation extends Component {
           <Link to="/registration" style={styles.navigation}>
             Registration
           </Link>
-
-          <Link to="/login" style={styles.navigation}>
-            User Dashboard
+          
+          
+          <Link to="/login" style={styles.navigation}>{
+          (cookies.accessToken) ?
+            <div style={{"textAlign" : "right","marginTop" : "-26.5px","marginBottom" : "-26.5px"}}> User Dashboard</div>
+            : <div style={{"textAlign" : "right","marginTop" : "-26.5px","marginBottom" : "-26.5px"}}> Login </div>
+          }
           </Link>
+
         </div>
 
         <div style={styles.outlet}>
@@ -35,7 +47,7 @@ class HalamanNavigation extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 const styles = {
   atributStye: {
