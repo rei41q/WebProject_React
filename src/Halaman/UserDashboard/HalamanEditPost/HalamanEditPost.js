@@ -4,11 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
   const HalamanEditPost = () => {
-  const [values, setValues] = useState({});
+    const [cookies] = useCookies(["accessToken","id","title", "image", "body"]);
+
+  const [values, setValues] = useState({title : cookies.title, image : cookies.image, body : cookies.body});
   const navigate = useNavigate();
   
   const { postId } = useParams();
-  const [cookies] = useCookies(["accessToken","id"]);
+
 
   console.log("post id edit ", postId)
   if(!cookies.accessToken){
@@ -53,15 +55,15 @@ import { useCookies } from "react-cookie";
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title : </label>
-          <input name="title" onChange={handleChange} />
+          <input name="title" onChange={handleChange} value={values.title} />
         </div>
         <div>
           <label>image : </label>
-          <input name="image" onChange={handleChange} />
+          <input name="image" onChange={handleChange} value={values.image}/>
         </div>
         <div>
           <label>Body : </label>
-          <input name="body" id="bodyId" onChange={handleChange} />
+          <input name="body" id="bodyId" onChange={handleChange}value={values.body}  />
         </div>
       
         <div>

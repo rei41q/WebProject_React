@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 import styleButtons from "../../StyleButtons/Style.json"
 
   const HalamanBuatPost = () => {
-  const [values, setValues] = useState({});
+    const [values, setValues] = useState({image : "https://salsawisata.b-cdn.net/wp-content/uploads/2021/11/Pantai-Gatra.jpg"});
   const navigate = useNavigate();
   const [cookies] = useCookies(["accessToken"]);
 
@@ -64,7 +64,7 @@ import styleButtons from "../../StyleButtons/Style.json"
         </div>
         <div>
           <label>image : </label>
-          <input name="image" onChange={handleChange} />
+          <input name="image" onChange={handleChange}  value={values.image} />
         </div>
         <div>
           <label>Body : </label>

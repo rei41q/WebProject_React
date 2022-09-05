@@ -50,9 +50,12 @@ const UserDashboard = () => {
       .catch((err) => console.error(err));
   };
 
-  const handleClick = (postId) => {
-    
+  const handleClick = (postId,title,image,body) => {
+    setCookies("title", title, { maxAge: 5000000 });
+    setCookies("image", image, { maxAge: 5000000 });
+    setCookies("body", body, { maxAge: 5000000 });
     navigate(`/editPost/${postId}`);
+
   };
 
   const handleHover = () =>{
@@ -120,7 +123,7 @@ const UserDashboard = () => {
             title={post.title}
             body={post.body}
             image={post.image}
-            onClick={() => handleClick(post.id) } onMouseEnter={() => handleHover()}
+            onClick={() => handleClick(post.id, post.title,post.image, post.body) } onMouseEnter={() => handleHover()}
           />
         ))}
       </div>
