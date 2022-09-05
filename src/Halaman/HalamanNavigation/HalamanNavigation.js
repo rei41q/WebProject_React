@@ -35,8 +35,8 @@ const HalamanNavigation = () => {
           
           <Link to="/login" style={styles.navigation}>{
           (cookies.accessToken) ?
-            <div style={{"textAlign" : "right","marginTop" : "-26.5px","marginBottom" : "-26.5px"}}> User Dashboard</div>
-            : <div style={{"textAlign" : "right","marginTop" : "-26.5px","marginBottom" : "-26.5px"}}> Login </div>
+            <div style={{"textAlign" : "right","marginTop" : "-26.2px","marginBottom" : "-26.5px"}}> User Dashboard</div>
+            : <div style={{"textAlign" : "right","marginTop" : "-26.2px","marginBottom" : "-26.5px"}}> Login </div>
           }
           </Link>
 

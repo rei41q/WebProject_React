@@ -9,7 +9,7 @@ import styles from "../../StyleButtons/Style.json"
 let NomorHalaman = 1;
 let simpanNomorHalaman = 1
 
-const SemuaPost = () => {
+  const SemuaPost = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -49,6 +49,7 @@ const SemuaPost = () => {
           const listPosts = res.data;
           
           setPosts(listPosts);
+
           simpanNomorHalaman = NomorHalaman
        
         });
@@ -61,7 +62,9 @@ const SemuaPost = () => {
   };
 
   const halamanSebelumnya = () => {
+
     if (simpanNomorHalaman > 1) {
+
       simpanNomorHalaman = simpanNomorHalaman - 1;
       console.log("Nomor halaman", simpanNomorHalaman);
       axios
