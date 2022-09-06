@@ -26,8 +26,7 @@ import styleButtons from "../../StyleButtons/Style.json"
       
     e.preventDefault();
     axios
-      .post("http://localhost:8000/posts", values, {
-        
+      .post("http://localhost:8000/posts", values,{
         headers: { Authorization: `Bearer ${cookies.accessToken}` },
       })
       .then((res) =>{ 
@@ -36,9 +35,7 @@ import styleButtons from "../../StyleButtons/Style.json"
         if(res.status===200){
         alert("buat post berhasil")
         navigate(`/userDashboard/${cookies.id}`)
-        }
-        
-    
+        }   
     })
       .catch((err) => {
         alert("Something went wrong. Please try again later");

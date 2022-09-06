@@ -32,7 +32,7 @@ const HalamanRegistration = () => {
    <h1 style={{"color" : "rgb(0, 42, 78)"}}>Sign Up </h1> 
 
   <form onSubmit={handleSubmit}>
-  <label > <span style={{ "margin-left": "5px", "color" : "#00213e"} }> Full Name  </span></label>
+  <label > <span style={{ "marginLeft": "5px", "color" : "#00213e"} }> Full Name  </span></label>
   <div >
      
       <input placeholder="Masukan nama lengkap Anda" 
@@ -53,7 +53,7 @@ const HalamanRegistration = () => {
 
       />
     </div>
-    <label>  <span style={{ "margin-left": "1px","color" : "#00213e"}}> Password </span> </label>
+    <label>  <span style={{ "marginLeft": "1px","color" : "#00213e"}}> Password </span> </label>
     <div>
     
       <input placeholder="Masukan Password Anda" 
@@ -99,7 +99,7 @@ const styles = {
     "border" : "0.2px solid gray", 
     "backgroundColor" : "1a64a6", 
     "width" : "62.5%", "height" : 
-    "28px","borderRadius" : "5px"
+    "28px","borderRadius" : "5px",
   },
 
 };

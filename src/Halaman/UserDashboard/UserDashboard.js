@@ -7,39 +7,63 @@ import CardUserDashboard from "./CardUserDashboard";
 import { useCookies } from "react-cookie";
 
 
+
 import styleButtons from "../StyleButtons/Style.json"
 
+
+
+console.log("masuk reload global")
 const UserDashboard = () => {
+
+  console.log("masuk reload userDashboard")
   
     const [cookies, setCookies] = useCookies(["accessToken", "id"]);
+
+    const logOut = () =>{
+
+      setCookies("accessToken", null, { maxAge: 0 });
+      setCookies("id", null, { maxAge: 0 });
+      alert("Log out berhasil, diarahkan kembali ke home")
+    
+      navigate(`/`);
+    
+    }
+    
+
+
     const { id } = useParams();
     console.log("writer id", id)
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
   JSON.parse(localStorage.getItem('user-info')) 
+
   const buatPost = () =>{
-    navigate(`/createPost`);
-   
+    if(cookies.accessToken && cookies.id === id){
+      console.log(cookies.accessToken)
+      console.log(cookies.id)
+      console.log(id)
+      navigate(`/createPost`);
+    }
   }
-  const logOut = () =>{
-    setCookies("accessToken", null, { maxAge: 0 });
-    setCookies("id", null, { maxAge: 0 });
-    alert("Log out berhasil, diarahkan kembali ke home")
-    navigate(`/`);
-  }
+
   const fetchPosts = () => {
+
+    console.log("masuk reload fetchposts")
 
     axios
       .get(`http://localhost:8000/userDashboard?writerId=${id} `,{
         headers: { Authorization: `Bearer ${cookies.accessToken}` },    //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
       })
       .then((res) => {
+        
+
+    
         const { accessToken } = res.data;
         const listPosts = res.data;
         console.log(listPosts);
 
-
+        console.log("masuk user ilegal")
         console.log("acces token id backend: ",accessToken)
         console.log(": ",cookies.accessToken)
         console.log(": ",cookies.id)
