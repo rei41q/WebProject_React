@@ -99,7 +99,7 @@ const styles = {
   borderLogin: {
     "border" : "0px solid rgb(0, 42, 78)", 
      "width" : "40%",
-     "height" : "355px",
+     "height" : "315px",
      "marginLeft": "50%",
      "marginTop": "20px",
     "padding" : "30px 0px 45px 0px",

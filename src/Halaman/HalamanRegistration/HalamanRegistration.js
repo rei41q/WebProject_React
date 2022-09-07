@@ -65,7 +65,7 @@ const HalamanRegistration = () => {
 
     <br></br>
 
-    <div style={{"textAlign" : "center","margin-left": "50px"}}>
+    <div style={{"textAlign" : "center","marginLeft": "50px"}}>
       <button style={styleButtons.button7}  type="submit" > Buat Akun </button>
     </div>
   </form>
