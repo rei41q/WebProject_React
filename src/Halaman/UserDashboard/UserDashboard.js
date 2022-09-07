@@ -8,43 +8,42 @@ import { useCookies } from "react-cookie";
 
 import styleButtons from "../StyleButtons/Style.json"
 
-
-console.log("masuk reload global")
+console.log("masuk userdashboar global")
 
 const UserDashboard = () => {
 
-  console.log("masuk reload userDashboard")
-  
-    let statusLogOut = false;
+  console.log("masuk userDashboard")
 
-    const [cookies, setCookies] = useCookies(["accessToken", "id"]);
+    const [cookies, setCookies] = useCookies(["accessToken", "id","loginStatus"]);
 
     const logOut = () =>{
 
       setCookies("accessToken", null, { maxAge: 0 });
       setCookies("id", null, { maxAge: 0 });
+      setCookies("loginStatus", null, { maxAge: 0 });
+      
+      setCookies("image", null, { maxAge: 0 });
+      setCookies("title", null, { maxAge: 0 });
+      setCookies("body", null, { maxAge: 0 });
       alert("Log out berhasil, diarahkan kembali ke home")
     
-      statusLogOut = true;
-
-      navigate(`/`);
+      console.log("masuk login dari userdashboard")
+      navigate(`/login`);
     
     }
     
 
 
     const { id } = useParams();
-    console.log("writer id", id)
+    
+ 
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
-  JSON.parse(localStorage.getItem('user-info')) 
 
   const buatPost = () =>{
     if(cookies.accessToken && cookies.id === id){
-      console.log(cookies.accessToken)
-      console.log(cookies.id)
-      console.log(id)
+
       navigate(`/createPost`);
     }
   }
@@ -59,16 +58,10 @@ const UserDashboard = () => {
       })
       .then((res) => {
         
-
-    
-        const { accessToken } = res.data;
         const listPosts = res.data;
-        console.log(listPosts);
+  
 
-        console.log("masuk user ilegal")
-        console.log("acces token id backend: ",accessToken)
-        console.log(": ",cookies.accessToken)
-        console.log(": ",cookies.id)
+        console.log("masuk axios userdashboard")
         //PENGECEKAN JIKA COOKIES DIEDIT
 
         setPosts(listPosts);
@@ -119,19 +112,19 @@ const UserDashboard = () => {
          * 2. cek apakah akses token decode strukturnya valid apa tidak
          * 3. cek server apakah akses token valid apa tidak
          */
-        console.log("Tes cookies",cookies.id, id)
+
         if (!cookies.accessToken) {
+          console.log("userdashboard kembali ke login")
           navigate("/login");
         }
         else{
-            if(cookies.accessToken && cookies.id === id && statusLogOut === false){
-              console.log("masuk fetch")
+            if(cookies.accessToken && cookies.id === id && cookies.loginStatus){
+              console.log("masuk fetch userdashboard")
             fetchPosts();
             }
             else{
-              console.log("masuk ")
-              statusLogOut = false
-              navigate("/")
+              console.log("userdashboard kembali ke login else 2")
+              navigate("/login")
             }
         } 
   }, []);

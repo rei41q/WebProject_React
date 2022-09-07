@@ -5,27 +5,28 @@ import { useCookies } from "react-cookie";
 
 import styleButtons from "../StyleButtons/Style.json"
 
+console.log("masuk login awal 1")
+
 const HalamanLogin = () => {
   const [values, setValues] = useState({});
-  const [cookies, setCookies] = useCookies(["accessToken", "id", "email"]);
-
+  const [cookies, setCookies] = useCookies(["accessToken", "id", "email","loginStatus"]);
+  
   const navigate = useNavigate();
 
-  console.log(cookies.accessToken)
-  
+  console.log("masuk login awal 2")
   useEffect(() => {
     /**
      * 1. cek apakah akses token ada atau tidak
      * 2. cek apakah akses token decode strukturnya valid apa tidak
      * 3. cek server apakah akses token valid apa tidak
      */
-    console.log("Tes cookies",cookies.accessToken)
-    console.log("Tes cookies",useCookies)
-    if (cookies.accessToken) {
-      
+
+    if (cookies.accessToken && cookies.loginStatus) {  
+      console.log("masuk login awal 3")
       navigate(`/userDashboard/${cookies.id}`);
     }
     else{
+      console.log("masuk login 4")
       navigate("/login");
     }
 }, []);
@@ -40,17 +41,20 @@ const HalamanLogin = () => {
     axios
     .post("http://localhost:8000/auth/login", values)
       .then((res) => {
-        const { accessToken, id } = res.data;
-        console.log(accessToken)
+        const { accessToken, id, loginStatus } = res.data;
+
       
-        setCookies("accessToken", accessToken, { maxAge: 600000 });
+        console.log("masuk axios login ")
 
-        setCookies("id", id, { maxAge: 600000 });
-        console.log("id : ", id)
+        setCookies("accessToken", accessToken, { maxAge: 500000000000000 });
 
+        setCookies("id", id, { maxAge: 500000000000000 });
+
+        setCookies("loginStatus", loginStatus, { maxAge: 500000000000000 })
   
-        console.log("access token : ", accessToken)
+
         if(res.status===200){
+          console.log("masuk login ke userdashboard")
           navigate(`/userDashboard/${id}`);
         }
         

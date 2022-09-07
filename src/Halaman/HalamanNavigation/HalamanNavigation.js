@@ -8,8 +8,8 @@ import { useCookies } from "react-cookie";
 
 const HalamanNavigation = () => {
 
-  const [cookies, setCookies] = useCookies(["accessToken"]);
-
+  const [cookies, setCookies] = useCookies(["accessToken","loginStatus"]);
+  console.log("masuk navigation post")
     console.log("cookies login", cookies.accessToken)
 
     return (
