@@ -6,17 +6,17 @@ import { useParams } from "react-router-dom";
 import CardUserDashboard from "./CardUserDashboard";
 import { useCookies } from "react-cookie";
 
-
-
 import styleButtons from "../StyleButtons/Style.json"
 
 
-
 console.log("masuk reload global")
+
 const UserDashboard = () => {
 
   console.log("masuk reload userDashboard")
   
+    let statusLogOut = false;
+
     const [cookies, setCookies] = useCookies(["accessToken", "id"]);
 
     const logOut = () =>{
@@ -25,6 +25,8 @@ const UserDashboard = () => {
       setCookies("id", null, { maxAge: 0 });
       alert("Log out berhasil, diarahkan kembali ke home")
     
+      statusLogOut = true;
+
       navigate(`/`);
     
     }
@@ -122,14 +124,16 @@ const UserDashboard = () => {
           navigate("/login");
         }
         else{
-            if(cookies.accessToken && cookies.id === id){
+            if(cookies.accessToken && cookies.id === id && statusLogOut === false){
+              console.log("masuk fetch")
             fetchPosts();
             }
             else{
-              alert("Akses ilegal")
+              console.log("masuk ")
+              statusLogOut = false
               navigate("/")
             }
-        }
+        } 
   }, []);
 
   return (
