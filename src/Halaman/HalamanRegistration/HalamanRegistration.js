@@ -14,7 +14,7 @@ const HalamanRegistration = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:8000/user/registration", values)
+    .post("https://backendgreiq2.herokuapp.com/user/registration", values)
       .then((res) => {
        alert("pendaftaraan sukses")
       })

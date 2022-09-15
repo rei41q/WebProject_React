@@ -44,7 +44,7 @@
 
         NomorHalaman = simpanNomorHalaman + 1;
         axios
-          .get(`http://localhost:8000/posts?pageNumber=${NomorHalaman}`)
+          .get(`https://backendgreiq2.herokuapp.com/posts?pageNumber=${NomorHalaman}`)
           .then((res) => {
             const listPosts = res.data;
             
@@ -68,7 +68,7 @@
         simpanNomorHalaman = simpanNomorHalaman - 1;
         console.log("Nomor halaman", simpanNomorHalaman);
         axios
-          .get(`http://localhost:8000/posts?pageNumber=${simpanNomorHalaman}`)
+          .get(`https://backendgreiq2.herokuapp.com/posts?pageNumber=${simpanNomorHalaman}`)
           .then((res) => {
             const listPosts = res.data;
             console.log(listPosts);
