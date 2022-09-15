@@ -39,7 +39,7 @@ const HalamanLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:8000/auth/login", values)
+    .post("https://backendgreiq2.herokuapp.com/auth/login", values)
       .then((res) => {
         const { accessToken, id, loginStatus } = res.data;
 

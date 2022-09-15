@@ -13,7 +13,7 @@ const SingleBlogPost = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/posts/${postId}`)
+      .get(`https://backendgreiq2.herokuapp.com/posts/${postId}`)
       .then((res) => setPost(res.data))
       .catch((err) => console.error(err));
   }, [postId]);

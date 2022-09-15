@@ -26,7 +26,7 @@ import styleButtons from "../../StyleButtons/Style.json"
       
     e.preventDefault();
     axios
-      .post("http://localhost:8000/posts", values,{
+      .post("https://backendgreiq2.herokuapp.com/posts", values,{
         headers: { Authorization: `Bearer ${cookies.accessToken}` },
       })
       .then((res) =>{ 

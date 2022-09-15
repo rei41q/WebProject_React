@@ -53,7 +53,7 @@ const UserDashboard = () => {
     console.log("masuk reload fetchposts")
 
     axios
-      .get(`http://localhost:8000/userDashboard?writerId=${id} `,{
+      .get(`https://backendgreiq2.herokuapp.com/userDashboard?writerId=${id} `,{
         headers: { Authorization: `Bearer ${cookies.accessToken}` },    //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
       })
       .then((res) => {
