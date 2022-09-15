@@ -29,7 +29,7 @@ import { useCookies } from "react-cookie";
     e.preventDefault();
     console.log(e.preventDefault())
     axios
-      .put(`http://localhost:8000/posts/${postId}`, values, {
+      .put(`https://backendgreiq2.herokuapp.com/posts/${postId}`, values, {
         headers: { Authorization: `Bearer ${cookies.accessToken}` },
       })
       .then((res) => {
