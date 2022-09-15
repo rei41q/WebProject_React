@@ -19,7 +19,7 @@
       simpanNomorHalaman = 1
 
       axios
-        .get(`http://localhost:8000/posts?pageNumber=${1}`) //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
+        .get(`https://backendgreiq2.herokuapp.com/posts?pageNumber=${1}`) //MEMAKAI BACKEND API SEBELUMNYA, CHAPTER 7
         .then((res) => {
           const listPosts = res.data;
           console.log(listPosts);
